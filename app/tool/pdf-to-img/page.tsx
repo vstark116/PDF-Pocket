@@ -1,16 +1,10 @@
 'use client';
-import { useState, useEffect } from 'react';
-import * as pdfjsLib from 'pdfjs-dist';
+import { useState } from 'react';
 import JSZip from 'jszip';
 import ToolPageTemplate from '@/components/ToolPageTemplate';
 
 export default function PdfToImgPage() {
   const [format, setFormat] = useState<'jpeg' | 'png'>('jpeg');
-
-  useEffect(() => {
-    // Set up PDF.js worker using CDN to avoid Next.js bundling issues
-    pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
-  }, []);
 
   const renderPageToBlob = async (page: any, scale: number, format: string): Promise<Blob> => {
     const viewport = page.getViewport({ scale });
@@ -45,6 +39,10 @@ export default function PdfToImgPage() {
     if (files.length === 0) throw new Error("Vui lòng tải lên 1 file PDF.");
     const file = files[0];
     
+    // Load library dynamically to prevent Server-Side Rendering (Next.js Build) crashes
+    const pdfjsLib = await import('pdfjs-dist');
+    pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
+
     const arrayBuffer = await file.arrayBuffer();
     const pdf = await pdfjsLib.getDocument({ data: new Uint8Array(arrayBuffer) }).promise;
     const totalPages = pdf.numPages;
