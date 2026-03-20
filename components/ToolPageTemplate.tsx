@@ -7,7 +7,7 @@ import styles from './ToolPageTemplate.module.css';
 interface ToolPageProps {
   title: string;
   description: string;
-  onProcess: (files: File[]) => Promise<Blob | string>; 
+  onProcess: (files: File[]) => Promise<Blob | string>;
   multiple?: boolean;
   optionsUI?: React.ReactNode;
   resultExtension?: string;
@@ -70,7 +70,7 @@ export default function ToolPageTemplate({ title, description, onProcess, multip
 
       <main className={styles.mainArea}>
         {status === 'idle' && files.length === 0 && (
-          <div 
+          <div
             className={styles.dropzone}
             onDragOver={handleDragOver}
             onDrop={handleDrop}
@@ -95,13 +95,13 @@ export default function ToolPageTemplate({ title, description, onProcess, multip
                 </div>
               ))}
               {multiple && (
-                 <label className={styles.addMoreLabel}>
-                   + Thêm file khác
-                   <input type="file" accept={accept} multiple className={styles.hiddenInput} onChange={handleFileChange} />
-                 </label>
+                <label className={styles.addMoreLabel}>
+                  + Thêm file khác
+                  <input type="file" accept={accept} multiple className={styles.hiddenInput} onChange={handleFileChange} />
+                </label>
               )}
             </div>
-            
+
             {optionsUI && (
               <div className={styles.optionsContainer}>
                 {optionsUI}
@@ -118,7 +118,7 @@ export default function ToolPageTemplate({ title, description, onProcess, multip
           <div className={styles.processing}>
             <Loader2 size={64} className={styles.spinner} />
             <h2>Đang xử lý tài liệu của bạn...</h2>
-            <p>Vui lòng đợi trong giây lát, phép thuật đang xảy ra!</p>
+            <p>Vui lòng đợi trong giây lát...</p>
           </div>
         )}
 

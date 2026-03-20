@@ -7,7 +7,7 @@ export default function Home() {
     <main className={styles.main}>
       <header className={styles.hero}>
         <h1>PDF Pocket</h1>
-        <p>Mọi công cụ PDF bạn cần, ngay trong tầm tay</p>
+        <p>Tool PDF cho mọi nhà</p>
         <HeroSearch />
       </header>
       <ToolGrid />
