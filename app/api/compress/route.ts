@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import JSZip from 'jszip';
 
+export const runtime = 'edge';
+
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();
@@ -16,9 +18,9 @@ export async function POST(request: NextRequest) {
     const zip = new JSZip();
     zip.file(file.name, arrayBuffer);
     
-    // Generate ZIP as nodebuffer
+    // Generate ZIP
     const zipData = await zip.generateAsync({
-      type: 'nodebuffer',
+      type: 'uint8array',
       compression: 'DEFLATE',
       compressionOptions: {
         level: 9 // Maximum compression
