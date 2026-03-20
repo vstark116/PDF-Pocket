@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { 
-  FileText, Columns, Trash2, RotateCw, FileArchive, 
-  Image as ImageIcon, FileImage, 
-  FileCheck, FileDigit
+  Columns, Trash2, RotateCw, FileArchive, 
+  Image as ImageIcon, 
+  FileDigit
 } from 'lucide-react';
 import styles from './ToolGrid.module.css';
 
@@ -12,10 +12,7 @@ export const TOOLS = [
   { id: 'delete-pages', name: 'Xóa trang PDF', icon: Trash2, desc: 'Bỏ đi những trang không cần thiết', color: '#ef4444' },
   { id: 'rotate', name: 'Xoay PDF', icon: RotateCw, desc: 'Xoay lại các trang bị ngược', color: '#f59e0b' },
   { id: 'number-pages', name: 'Đánh số trang', icon: FileDigit, desc: 'Chèn số trang vào góc', color: '#8b5cf6' },
-  { id: 'pdf-to-img', name: 'PDF sang Ảnh', icon: FileImage, desc: 'Biến mỗi trang thành một bức ảnh', color: '#ec4899' },
-  { id: 'img-to-pdf', name: 'Ảnh sang PDF', icon: ImageIcon, desc: 'Nối nhiều ảnh thành 1 file PDF', color: '#14b8a6' },
-  { id: 'pdf-to-word', name: 'PDF sang Word', icon: FileText, desc: 'Chuyển sang định dạng Word (.docx)', color: '#0ea5e9' },
-  { id: 'compress', name: 'Nén PDF', icon: FileCheck, desc: 'Giảm dung lượng file tối đa', color: '#f43f5e' }
+  { id: 'img-to-pdf', name: 'Ảnh sang PDF', icon: ImageIcon, desc: 'Nối nhiều ảnh thành 1 file PDF', color: '#14b8a6' }
 ];
 
 export default function ToolGrid() {

@@ -40,7 +40,7 @@ git push origin main
 
 ## Tính Năng Nổi Bật
 
+- **Ghép PDF:** Gộp nhiều file PDF lại làm một.
+- **Cắt PDF:** Tách 1 file lớn thành nhiều file nhỏ.
 - **Ảnh sang PDF:** Ghép nhiều hình ảnh (.png, .jpg) thành 1 file PDF liên tục.
-- **Nén PDF:** Giảm mạnh dung lượng file PDF bằng cách đóng gói zip để chia sẻ nhanh chóng.
-- **PDF sang Word:** Trích xuất tự động văn bản có trong file PDF, xuất sang định dạng Word (`.docx`) sẵn sàng cho việc tái chỉnh sửa.
-- Cùng nhiều công cụ quản lý file PDF tiện lợi khác.
+- Cùng nhiều công cụ quản lý file PDF tiện lợi khác như xóa trang, đánh số trang, xoay trang.
