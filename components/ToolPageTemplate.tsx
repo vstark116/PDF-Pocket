@@ -11,9 +11,11 @@ interface ToolPageProps {
   multiple?: boolean;
   optionsUI?: React.ReactNode;
   resultExtension?: string;
+  accept?: string;
+  uploadText?: string;
 }
 
-export default function ToolPageTemplate({ title, description, onProcess, multiple = false, optionsUI, resultExtension = 'pdf' }: ToolPageProps) {
+export default function ToolPageTemplate({ title, description, onProcess, multiple = false, optionsUI, resultExtension = 'pdf', accept = '.pdf', uploadText = 'Kéo thả file PDF vào đây' }: ToolPageProps) {
   const [files, setFiles] = useState<File[]>([]);
   const [status, setStatus] = useState<'idle' | 'processing' | 'success'>('idle');
   const [resultUrl, setResultUrl] = useState<string | null>(null);
@@ -74,11 +76,11 @@ export default function ToolPageTemplate({ title, description, onProcess, multip
             onDrop={handleDrop}
           >
             <UploadCloud size={64} className={styles.uploadIcon} />
-            <h2>Kéo thả file PDF vào đây</h2>
+            <h2>{uploadText}</h2>
             <p>hoặc</p>
             <label className={styles.fileLabel}>
               Chọn file
-              <input type="file" accept=".pdf" multiple={multiple} className={styles.hiddenInput} onChange={handleFileChange} />
+              <input type="file" accept={accept} multiple={multiple} className={styles.hiddenInput} onChange={handleFileChange} />
             </label>
           </div>
         )}
@@ -95,7 +97,7 @@ export default function ToolPageTemplate({ title, description, onProcess, multip
               {multiple && (
                  <label className={styles.addMoreLabel}>
                    + Thêm file khác
-                   <input type="file" accept=".pdf" multiple className={styles.hiddenInput} onChange={handleFileChange} />
+                   <input type="file" accept={accept} multiple className={styles.hiddenInput} onChange={handleFileChange} />
                  </label>
               )}
             </div>

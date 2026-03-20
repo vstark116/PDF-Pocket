@@ -45,6 +45,8 @@ export default function ImageToPdfPage() {
       description="Nối nhiều hình ảnh của bạn thành 1 file PDF liên tục."
       multiple={true}
       onProcess={handleProcess}
+      accept="image/png, image/jpeg, image/jpg"
+      uploadText="Kéo thả hình ảnh vào đây"
     />
   );
 }
